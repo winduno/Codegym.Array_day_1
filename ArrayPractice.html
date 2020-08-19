@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ArrayPratice</title>
+</head>
+<body>
+    <form style="width: 20%; padding: 10px">
+        <input type="text" id="input" onfocus="this.value = ''" size="30">
+        <button type ="button" id="btnAdd" onclick="addElement()">Add</button>
+        <button type="button" id="btnDisplay" onclick="displayElement()">Display</button>
+        <br>
+        <hr>
+        <p id="field"></p>
+    </form>
+</body>
+</html>
+<script>
+    let input = document.getElementById("input");
+
+    let arrayE = [] ;
+    let output = document.getElementById("field");
+
+    function addElement() {
+        let putin = parseFloat(input.value);
+        if (!isNaN(putin)){
+            arrayE.push(putin);
+        }
+        else{
+            alert("Nhập số thôi cha nội!!");
+        }
+        input.focus();
+    }
+
+    function displayElement() {
+        let result = "";
+        if (arrayE.length > 0){
+            for (let i = 0; i < arrayE.length; i++){
+                result += "Element " + i + " = " + arrayE[i] + "<br>";
+            }
+            output.innerHTML = result;
+        }
+        else{
+            alert("Nhập vào trước rồi mới có cái để hiển thị chứ");
+        }
+    }
+</script>
